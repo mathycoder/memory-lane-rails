@@ -1,12 +1,28 @@
 import { combineReducers } from 'redux'
 
+const userReducer = combineReducers({
+    byId: usersById,
+    allIds: usersAllIds
+})
+
 export default userReducer
 
-function userReducer(state = {}, action) {
+function usersById(state = {}, action) {
+    switch(action.type) {
+        case 'ADD_USERS':
+            console.log(action.users)
+            return state
 
-  switch(action.type) {
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
+}
+
+function usersAllIds(state = [], action) {
+    switch(action.type) {
+        
+        default:
+            return state;
+    }
 }
 
