@@ -10,12 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_25_140757) do
+ActiveRecord::Schema.define(version: 2020_07_25_164143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "lanes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "memories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "location"
+    t.integer "lane_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "file_path"
+    t.string "caption"
+    t.integer "user_id"
+    t.integer "memory_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recollections", force: :cascade do |t|
+    t.string "anecdote"
+    t.string "quote"
+    t.string "joke"
+    t.integer "user_id"
+    t.integer "memory_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
